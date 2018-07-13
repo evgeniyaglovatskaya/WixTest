@@ -1,11 +1,12 @@
 package wrappers;
 
-import org.junit.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class BasePage {
 
@@ -14,7 +15,7 @@ public class BasePage {
 
     protected BasePage() {
         this.driver = BaseTest.driver;
-        this.wait = new WebDriverWait(this.driver, 5L);
+        this.wait = new WebDriverWait(this.driver, 10);
     }
 
     protected void openURL(String url) {
@@ -36,4 +37,8 @@ public class BasePage {
         Assert.assertTrue(element.isDisplayed());
     }
 
+    protected void submit(By locator){
+        WebElement button = this.wait.until(ExpectedConditions.elementToBeClickable(locator));
+        button.submit();
+    }
 }
