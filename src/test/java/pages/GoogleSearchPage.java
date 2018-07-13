@@ -16,7 +16,7 @@ public class GoogleSearchPage extends BasePage {
     }
 
     public void searchText(String text) {
-        this.type(searchField, "Wix");
+        this.type(searchField, text);
         this.submit(searchField);
     }
 
